@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+  <div id='countdowns'></div>
+  <br>
+  <br>
+  <a href="http://www.sitepoint.com/build-javascript-countdown-timer-no-dependencies/">Inspired by</a>
   </body>
 </html>
 
@@ -71,9 +75,10 @@
    }
 
    function initializeClock(title,endtime) {
+      var container = document.getElementById("countdowns");
       var clock = document.createElement('div');
       clock.className = 'clockdiv';
-      document.body.appendChild(clock);
+      container.appendChild(clock);
       var tit = document.createElement('h1');
       title = title + " : " + endtime.toLocaleDateString();
       var tit_txt = document.createTextNode(title);
