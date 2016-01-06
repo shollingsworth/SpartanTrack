@@ -74,15 +74,23 @@
      };
    }
 
-   function initializeClock(title,endtime) {
+   function initializeClock(title,endtime,url) {
       var container = document.getElementById("countdowns");
       var clock = document.createElement('div');
       clock.className = 'clockdiv';
       container.appendChild(clock);
       var tit = document.createElement('h1');
       title = title + " : " + endtime.toLocaleDateString();
-      var tit_txt = document.createTextNode(title);
-      tit.appendChild(tit_txt);
+      if(url != null) {
+         var link = document.createElement('a');
+         link.href = url;
+         var tit_txt = document.createTextNode(title);
+         link.appendChild(tit_txt);
+         tit.appendChild(link);
+      } else {
+         var tit_txt = document.createTextNode(title);
+         tit.appendChild(tit_txt);
+      }
       clock.appendChild(tit);
       function createSection(_class,desc) {
          var f = document.createElement('div');
@@ -122,5 +130,6 @@
       var timeinterval = setInterval(updateClock, 1000);
    }
 
-   initializeClock('Spartan Super - Monterey',new Date('6/4/2016 11:15 AM'));
+   //DATES GO HERE
+   initializeClock('Spartan Super - Monterey',new Date('6/4/2016 11:15 AM'),'http://www.spartan.com/en/race/detail/820/overview');
 </script>
